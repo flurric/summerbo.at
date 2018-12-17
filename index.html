@@ -1,4 +1,5 @@
   <?php
+  require_once('files/things.php');
   $startDate = date('Y-m-d', strtotime('-1 day', strtotime(file_get_contents('https://isitef.com/?start'))));
   ?>
 <!doctype html>
@@ -36,7 +37,7 @@
         <link rel="stylesheet" href="assets/styles/responsive.css">
 
         <!-- JS -->
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <!--<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>-->
     </head>
     <body id="page-top" data-spy="scroll" data-target=".navbar">
 
@@ -55,33 +56,7 @@
 
         <!-- ========== Navigation ========== -->
 
-        <nav class="navbar navbar-default navbar-fixed-top mega navbar-fw">
-          <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <!-- Logo -->
-            <a class="navbar-brand" href="index.html"><img class="navbar-logo" width="46" src="assets/images/logo@2x.png" alt="Hot Summer Nights - Logo"></a>
-          </div>
-
-          <!-- Navbar Links -->
-          <div id="navbar" class="navbar-collapse collapse page-scroll navbar-right">
-            <ul class="nav navbar-nav">
-              <li><a href="#home">Home<span class="sr-only"></span></a></li>
-              <li><a href="#about">About<span class="sr-only"></span></a></li>
-              <li><a href="#prices">Prices<span class="sr-only"></span></a></li>
-              <li><a href="#gallery">Gallery<span class="sr-only"></span></a></li>
-              <li><a href="#faq">FAQ<span class="sr-only"></span></a></li>
-              <li><a href="#team">Team<span class="sr-only"></span></a></li>
-              <li><a href="#contact">Contact<span class="sr-only"></span></a></li>
-              <?php if(!empty($_SESSION['userid'])){echo '<li><a href="userarea.html">User Area<span class="sr-only"></span></a></li>';}?>
-            </ul><!-- / .nav .navbar-nav -->
-          </div><!--/.navbar-collapse -->
-        </nav><!-- / .navbar -->
-
+        <?php echo $nav; ?>
 
 
         <!-- ========== Hero Cover ========== -->
@@ -164,34 +139,48 @@
               <span class="subheading">Party with us in the heart of Berlin</span>
             </header>
 		    <div class="row ws-m">
-            <div class="col-md-4 mb-sm-50">
+            <div class="col-md-6 mb-sm-50">
               <h5 class="mb-30">Party, on a boat...</h5>
-              <p>Very beautiful, cool and awesome.</p>
+              <p>is an awesome experience. See the sunset over Berlin while you are lounging on the deck. Partying hard in the middle of the city. Every moment you look outside you see something new. For 4 hours we make sure you can relax and start partying before Eurofurence even has begun.</p>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
               <h5 class="mb-30">Location</h5>
               <p>Location of the boat party is the Mark Brandenburg. The biggest ship of the Stern und Kreis company that has many ships for cruises in Berlin. With a very big open deck and 4 saloons inside there is enough space for everyone.</p>
             </div>
           </div><!-- / .row -->
 
 		  <div class="row ws-m">
-            <div class="col-md-3 mb-sm-50">
+
+            <div class="col-md-6 mb-sm-50">
               <h5 class="mb-30">Music</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem reiciendis quis, quae modi a laborum omnis aliquid distinctio explicabo.</p>
+              <p>For a good summer night we need good music.
+			  Our DJ's will make sure that from begin till end you will be able to dance and chill.
+			  From lounge music, house, dance and the vocal classics everyone can sing along to. </p>
             </div>
-            <div class="col-md-3 mb-sm-50">
-              <h5 class="mb-30">Fursuits</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem reiciendis quis, quae modi a laborum omnis aliquid distinctio explicabo.</p>
-            </div>
-            <div class="col-md-3 mb-sm-50">
+            <div class="col-md-6">
               <h5 class="mb-30">Drinks</h5>
-              <p>Onboard we have all kinds of drinks <!-- and foxes --> for the thirsty people.</p>
-            </div>
-            <div class="col-md-3">
-              <h5 class="mb-30">Transport</h5>
-              <p>For this party you don't have to travel at all! We start in the biergarten of the Estrel hotel. Perfect for everyone who wants to party and see Berlin without traveling far.</p>
+              <p>On the boat we have a fully equipped bar with all kinds of drinks available.
+			  You wanna go for a cold beer from the tap to watch Berlin? Sure, we have it!
+			  Want something refreshing after fursuiting or dancing hard? Also no problem!
+			  You can pay directly at the bar in cash so no need for tokens or special currency.</p>
             </div>
           </div><!-- / .row -->
+
+		  <div class="row ws-m">
+
+            <div class="col-md-6 mb-sm-50">
+              <h5 class="mb-30">Fursuits</h5>
+              <p>Do boats and fursuits work? Of course they do! We make sure that it's very easy to bring your stuff on the boat, including a fursuitlounge with basic supplies.
+			  We do understand that you maybe don't want to suit during the whole trip. Simply change out of suit and we keep guard. Also the outerdecks are perfect for cooling down and waving at the many people on the side.</p>
+            </div>
+            <div class="col-md-6">
+              <h5 class="mb-30">Transport</h5>
+              <p>For this party you don't have to travel at all! We start in the biergarten of the Estrel hotel. Perfect for everyone who wants to party and see Berlin without traveling far.
+			  The boat is also ending the tour there so no worries to get back to the hotel. Before boarding it's already possible to receive your badge and lanyard so you can enter without waiting.
+			  For more information about that, check below in the FAQ.</p>
+            </div>
+          </div><!-- / .row -->
+
         </section><!-- / .container -->
 
 		<!-- ========== Prices ========== -->
@@ -217,7 +206,7 @@
                     <span class="currency">€</span>
                     <span class="value">25</span>
                   </div>
-                  <p class="desc">First 100 tickets</p>
+                  <p class="desc">First 100 1s</p>
                   <hr>
 
                   <!-- Items -->
@@ -228,7 +217,7 @@
                   </ul>
                    <hr>
 
-                  <button class="btn-ghost">Register</button>
+                  <button class="btn-ghost" href="login.html">Register</button>
                 </div><!-- / .p-table -->
               </div><!-- / .col-md-4 -->
 
@@ -244,7 +233,7 @@
                     <span class="currency">€</span>
                     <span class="value">35</span>
                   </div>
-                  <p class="desc">Standard tickets</p>
+                  <p class="desc">Standard 1</p>
                   <hr>
 
                   <!-- Items -->
@@ -255,7 +244,7 @@
                   </ul>
                    <hr>
 
-                  <button class="btn-ghost">Register</button>
+                  <button class="btn-ghost"><a href="login.html">Register</a></button>
                 </div><!-- / .p-table -->
               </div><!-- / .col-md-4 -->
 
@@ -282,7 +271,7 @@
                   </ul>
                    <hr>
 
-                  <button class="btn-ghost">Upgrade</button>
+                  <button class="btn-ghost"><a href="login.html">Upgrade</a></button>
                 </div><!-- / .p-table -->
               </div><!-- / .col-md-4 -->
 
@@ -349,10 +338,10 @@
         </section><!-- / .portfolio-columns-fw -->
 
 		<!-- ========== Frequently Asked Questions ========== -->
-		<section class="container section">
+		<section id="faq" class="container section">
           <header class="sec-heading">
-            <h2>General Questions</h2>
-            <span class="subheading">Frequently Asked Questions</span>
+            <h2>Frequently Asked Questions</h2>
+            <span class="subheading">I need some help!</span>
           </header>
 
           <div class="row ws-s">
@@ -360,8 +349,8 @@
             <!-- FAQ Group 1 -->
             <div class="col-md-6">
               <div class="faq-group-header ws-s">
-                <h4 class="mb-30">Questions Group 1</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore facilis voluptas ipsam iure vero similique consectetur error quas aliquid nemo nisi.</p>
+                <h4 class="mb-30">General</h4>
+                <p>All the general questions about the party. All the answers why we do this and what is very important to know before you board the party.</p>
               </div>
 
               <!-- FAQ Accordion -->
@@ -372,13 +361,13 @@
                   <div class="panel-heading" role="tab" id="faq-1-h-1">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-1" href="#faq-1-collapse-1" aria-expanded="false" aria-controls="faq-1-collapse-1">
-                        Example question in acordion ?
+                        Why is the party on a boat?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-1-collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-1-h-1">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                      Why not? We like to party different in Berlin. Instead of another party in a club we thought that partying on a boat in the summer with beautiful Berlin around you is more awesome!
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -440,8 +429,8 @@
             <!-- FAQ Group 2 -->
             <div class="col-md-6">
               <div class="faq-group-header ws-s">
-                <h4 class="mb-30">Questions Group 2</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, blanditiis corrupti ea optio veniam, reiciendis, quidem iste quae.</p>
+                <h4 class="mb-30">Registration</h4>
+                <p>The registration is made as simple as possible. Do you still have questions about the registration and your question is not here? Send us a message via e-mail or Telegram.</p>
               </div>
 
               <!-- FAQ Accordion -->
@@ -452,13 +441,15 @@
                   <div class="panel-heading" role="tab" id="faq-2-h-1">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-2" href="#faq-2-collapse-1" aria-expanded="false" aria-controls="faq-2-collapse-1">
-                        Example question in acordion ?
+                       How much does the party cost?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-2-collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-2-h-1">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                      The early bird tickets cost €25.- and the normal tickets cost €35.-. There are only 100 early bird tickets available. After they are sold out you can still get a normal ticket. We also offer a Sponsor upgrade.
+					  You do not only get a goodie and special badge, but you also help us to make the party even more awesome!
+					  The registration stops the weekend before the party or when we are sold out.
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -468,13 +459,13 @@
                   <div class="panel-heading" role="tab" id="faq-2-h-2">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-2" href="#faq-2-collapse-2" aria-expanded="false" aria-controls="faq-2-collapse-2">
-                        Example question in acordion ?
+                        What is the minimum age for attending?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-2-collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-2-h-2">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      You need to be 18 years or older on the day of the party. We check everyone's ID so that's why we need to know your date of birth. This all have to do with local laws and responsibility.
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -484,13 +475,13 @@
                   <div class="panel-heading" role="tab" id="faq-2-h-3">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-2" href="#faq-2-collapse-3" aria-expanded="false" aria-controls="faq-2-collapse-3">
-                        Example question in acordion ?
+                        Can I order my sponsor upgrade later?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-2-collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-2-h-3">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      Yes that is possible. Simply login with your account details and tick the box for sponsor in your registration form. After submitting you will have to transfer the money to the bank details on the page.
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -500,13 +491,14 @@
                   <div class="panel-heading" role="tab" id="faq-2-h-4">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-2" href="#faq-2-collapse-4" aria-expanded="false" aria-controls="faq-2-collapse-4">
-                        Example question in acordion ?
+                        Where can I pick up my badge?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-2-collapse-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-2-h-4">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      On the day of the party you can pick up the badge inside the Estrel hotel during the afternoon or in the evening in the Biergarten near the boat. Please make sure you bring your ID with you.
+					  The badge is your entrance to the party so please do not lose it. There will be no tickets sold on the day itself.
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -523,8 +515,8 @@
             <!-- FAQ Group 3 -->
             <div class="col-md-6">
               <div class="faq-group-header ws-s">
-                <h4 class="mb-30">Questions Group 3</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore facilis voluptas ipsam iure vero similique consectetur error quas aliquid nemo nisi.</p>
+                <h4 class="mb-30">Location</h4>
+                <p>Here is all the information about the location. Bring your swimvest!</p>
               </div>
 
               <!-- FAQ Accordion -->
@@ -535,13 +527,14 @@
                   <div class="panel-heading" role="tab" id="faq-3-h-1">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-3" href="#faq-3-collapse-1" aria-expanded="false" aria-controls="faq-3-collapse-1">
-                        Example question in acordion ?
+                        What kind of things are to do during the party?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-3-collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-3-h-1">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                      We make sure you wouldn't be bored. So instead of a boring story about Berlin we build a party. With a big enough dancefloor, lounge area and even a fursuitlounge we make sure you can choose what you want to do.
+					  Of course you can also just chill outside with a drink and enjoy the sunset over Berlin.
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -551,13 +544,13 @@
                   <div class="panel-heading" role="tab" id="faq-3-h-2">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-3" href="#faq-3-collapse-2" aria-expanded="false" aria-controls="faq-3-collapse-2">
-                        Example question in acordion ?
+                        What kind of music will be played?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-3-collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-3-h-2">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      Expect all kinds of music for the perfect night of lounging and chilling. Basically we create a beachclub on the Spree in Berlin. For the real dance types we make sure to also explore more music styles during the trip.
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -567,13 +560,14 @@
                   <div class="panel-heading" role="tab" id="faq-3-h-3">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-3" href="#faq-3-collapse-3" aria-expanded="false" aria-controls="faq-3-collapse-3">
-                        Example question in acordion ?
+                        Is there a possibility that I will get seasick?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-3-collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-3-h-3">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      The chance of getting seasick on this boat is very minimal. This is because the speed and the size of the boat make it impossible to feel any waves from other boats on the Spree. We do advise to talk with your doctor in case you get seasick very easily.
+
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -613,13 +607,13 @@
                   <div class="panel-heading" role="tab" id="faq-4-h-1">
                     <h4 class="panel-title">
                       <span class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-accordion-4" href="#faq-4-collapse-1" aria-expanded="false" aria-controls="faq-4-collapse-1">
-                        Example question in acordion ?
+                        Does this party has anything to do with Eurofurence?
                       </span>
                     </h4>
                   </div>
                   <div id="faq-4-collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-4-h-1">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                      No, Eurofurence is not part of the organisation of this party. We do all love Eurofurence and wanted to give the Early Arrival furs a party to start Eurofurence different.
                     </div>
                   </div>
                 </div><!-- / .panel -->
@@ -695,8 +689,8 @@
                     <img src="/assets/images/hunter.png" alt="Team Member" class="img-responsive">
                     <div class="t-description">
                       <div class="content-wrapper">
-                        <h4 class="h-alt">Hello!</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                        <h4 class="h-alt">Ahoy!</h4>
+                        <p>Curious husky that loves to organize stuff. Started with the Furrave for many years, now expanding to Berlin. Loves gaming, fursuits and parties!</p>
                       </div>
                     </div>
                   </div>
@@ -706,10 +700,9 @@
                     <h4 class="t-name">Hunter</h4>
                     <span class="t-role">Registration &amp;<br> Financial</span>
                     <ul class="social-links">
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                      <li><a href="https://twitter.com/hunterhuskynl"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://twitch.tv/hunterhuskynl"><i class="fa fa-twitch"></i></a></li>
+                      <li><a href="https://t.me/hunterhuskynl"><i class="fa fa-telegram"></i></a></li>
                     </ul>
                   </div>
 
@@ -754,7 +747,7 @@
 
                   <!-- Image -->
                   <div class="t-image">
-                    <img src="assets/images/hausken.png" alt="Team Member" class="img-responsive">
+                    <img src="assets/images/hausken.png" height="320" alt="Team Member" class="img-responsive">
                     <div class="t-description">
                       <div class="content-wrapper">
                         <h4 class="h-alt">Hello!</h4>
@@ -766,7 +759,7 @@
                   <!-- Info -->
                   <div class="t-info">
                     <h4 class="t-name">Hausken</h4>
-                    <span class="t-role">Design and Creative</span>
+                    <span class="t-role">Design &amp;<br>Creative</span>
                     <ul class="social-links">
                       <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                       <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -809,131 +802,7 @@
         <!-- ========== Footer Contact ========== -->
 
         <!-- ========== Footer Widgets ========== -->
-
-        <footer id="contact" class="footer-widgets">
-          <div class="container">
-            <div class="row section">
-
-              <!-- About Us -->
-              <div class="col-md-3 col-sm-6 mb-sm-100">
-                <div class="widget about-widget">
-                  <h5 class="header-widget">About Us</h5>
-                  <p>Since 2012 we organise parties in Europe. .</p>
-
-                  <ul class="social-links">
-                    <li><a href="https://github.com/DatDraggy/summerbo.at"><i class="fa fa-github"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                  </ul>
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-              <!-- Instagram Feed -->
-              <div class="col-md-3 col-sm-6 mb-sm-100" hidden>
-                <div class="widget gallery-widget">
-                  <h5 class="header-widget">Instagram Feed</h5>
-                  <ul>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                    <li><a href="http://placehold.it/650x450" class="gallery-widget-lightbox"><img src="" alt="Instagram Image"><div class="hover-link"><span class="linea-arrows-plus"></span></div></a></li>
-
-                  </ul>
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-              <!-- Twitter Feed -->
-              <div class="col-md-3 col-sm-6 mb-sm-100" hidden>
-                <div class="widget twitter-widget">
-                  <h5 class="header-widget">Twitter Feed</h5>
-                  <ul>
-
-                    <li>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <p>5 Reasons You Should Take a Sabbatical from Creative Work <a href="#">http://enva.to/NTa6F</a> by <a href="#">@envato</a> <span>- AUG 10</span></p>
-                    </li>
-
-                    <li>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <p>What is the enemy of <a href="#">#creativity</a>? <a href="#">http://enva.to/hVl5G</a>  [VIDEO] <br>by <a href="#">@envato</a> <span>- AUG 5</span></p>
-                    </li>
-
-                  </ul>
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-              <!-- Newsletter -->
-              <div class="col-md-3 col-sm-6" hidden>
-                <div class="widget newsletter-widget">
-                  <h5 class="header-widget">Newsletter</h5>
-
-                  <form action="post">
-                    <div class="form-group">
-                      <input type="email" name="w-newssletter" placeholder="Join our newsletter">
-                      <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </div>
-                  </form>
-
-                </div><!-- / .widget -->
-              </div><!-- / .col-md-3 -->
-
-            </div><!-- / .row -->
-          </div><!-- / .container -->
-
-
-          <!-- Copyright -->
-          <div class="copyright">
-            <div class="container">
-              <div class="row">
-
-                <div class="col-sm-6">
-                  <small>&copy; 2018 Made by <a class="no-style-link" href="#" target="_blank">Hunter</a> & <a class="no-style-link" href="https://kieran.de" target="_blank">Kieran</a></small>
-                </div>
-
-                <div class="col-sm-6">
-                  <small><a href="#page-top" class="pull-right to-the-top">To the top<i class="fa fa-angle-up"></i></a></small>
-                </div>
-
-              </div><!-- / .row -->
-            </div><!-- / .container -->
-          </div><!-- / .copyright -->
-
-        </footer><!-- / .footer-widgets -->
-
-
-
-        <!-- ========== Scripts ========== -->
-
-        <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-        <script src="assets/js/vendor/google-fonts.js"></script>
-        <script src="assets/js/vendor/jquery.easing.js"></script>
-        <script src="assets/js/vendor/jquery.waypoints.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-        <script src="assets/js/vendor/bootstrap-hover-dropdown.min.js"></script>
-        <script src="assets/js/vendor/smoothscroll.js"></script>
-        <script src="assets/js/vendor/jquery.localScroll.min.js"></script>
-        <script src="assets/js/vendor/jquery.scrollTo.min.js"></script>
-        <script src="assets/js/vendor/jquery.stellar.min.js"></script>
-        <script src="assets/js/vendor/jquery.parallax.js"></script>
-        <script src="assets/js/vendor/slick.min.js"></script>
-        <script src="assets/js/vendor/jquery.easypiechart.min.js"></script>
-        <script src="assets/js/vendor/countup.min.js"></script>
-        <script src="assets/js/vendor/isotope.min.js"></script>
-        <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/vendor/wow.min.js"></script>
-        <script src="assets/js/vendor/jquery.mb.YTPlayer.min.js"></script>
-        <script src="assets/js/vendor/jquery.ajaxchimp.js"></script>
-
+        <?php echo $footer; ?>
 
         <!-- Definity JS -->
         <script src="assets/js/main.js"></script>
